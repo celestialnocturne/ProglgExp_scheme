@@ -61,7 +61,7 @@
           (else 0)
           )))
 
-;exp3-4 WIP
+;exp3-4 _WIP
 (define simple+
   (lambda (lst)
     (let ((nzl (crnzl+ lst)))
