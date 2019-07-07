@@ -1,0 +1,17 @@
+(define TREE '(1 (2 (3 4)) 6 (7 8 9)) )
+
+(define map-tree
+  (lambda (f TREE)
+    (cond ((null? TREE) '())
+          ((pair? TREE)   (cons (map-tree f (car TREE)) (map-tree f (cdr TREE))))
+          (else        (f TREE))
+          )))
+
+
+(define map-tree2
+  (lambda (f TREE)
+    (cond ((null? TREE) '())
+          ((pair? TREE)  (map) )
+          (else        (f TREE))
+          )))
+
