@@ -4,15 +4,14 @@
 
 (define myappend
   (lambda (ls)
-    (if (null? ls)
-        '()
-        (append (car ls)
-                (myappend (cdr ls))
-                ))))
+    (apply myappend ls)
+                ))
 
 ;ex2-1
 (define get-depth
   (lambda (list dpt)
-    (cond ((= 1 dpt) (cons (car list) '()))
-          (else (map (lambda (t) (map-tree2 f t-1)) TREE))
+    (cond ((= 1 dpt) (map car (cdr list)))
+          (else (apply append (map (lambda (t) (get-depth t (- dpt 1))) (cdr list))))
           )))
+
+;ex2-2
