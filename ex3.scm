@@ -1,3 +1,9 @@
+(define myappend
+   (lambda (ls)
+      (apply append ls)
+   ))
+
+
 ;exp3-1 
 (define diff
   (lambda (f)
@@ -61,7 +67,7 @@
           (else 0)
           )))
 
-;exp3-4 WIP
+;exp3-4
 (define simple+
   (lambda (lst)
     (let ((nzl (crnzl+ lst)))
@@ -72,16 +78,15 @@
 
 (define simple-
   (lambda (lst)
-    (let ((nzl (crnzl+ lst)))
-    (cond ((null? lst) 0)
-          ((null? (cdr lst)) (car lst))
-          (else (cons '+ lst)))
-    )))
+    (let ((nzl (crnzl+ (cdr lst))))
+    (cond ((null? nzl) (car lst))
+          (else (cons '- (cons (car lst) nzl)))
+    ))))
 
 (define simple*
   (lambda (lst)
     (let ((p (car lst)) (q (cadr lst)))
-    (cond ((equal? 0 (or p q)) 0)
+    (cond ((or (equal? p 0) (equal? q 0)) 0)
           ((equal? p 1) q)
           ((equal? q 1) p)
           (else (cons '* lst))
@@ -103,12 +108,25 @@
 
 (define crnzl+
   (lambda (lst)
-    (cons '+ `(,(apply + (cdr lst))))
+    (let ((nzl (map (lambda (t) (if (equal? t 0) '() `(,t))) lst))
+         )
+      (myappend nzl))
     ))
+
+;(define crnzl-
+;  (lambda (lst)
+;   (let ((nzl (map (lambda (t) (if (equal? t 0) '() `(,t))) (cdr lst)))
+;         )
+;     (myappend nzl))
+;   ))
+
 
 (define simple
   (lambda (f)
     (cond ((or (number? f) (symbol? f)) f)
-          
-          (else 0))
+          ((equal? '+ (car f)) (simple+ (map simple (cdr f))))
+          ((equal? '- (car f)) (simple- (map simple (cdr f))))
+          ((equal? '* (car f)) (simple* (map simple (cdr f))))
+          ((equal? '** (car f)) (simple**(map simple (cdr f))))
+          (else f))
     ))
