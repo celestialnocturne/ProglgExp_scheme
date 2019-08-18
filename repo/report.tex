@@ -1,0 +1,77 @@
+\documentclass[12pt,a4j,dvipdfmx]{jarticle}
+\usepackage[dvipdfmx]{graphicx} % 画像を読み込むためのパッケージ
+\usepackage{here} % 図を指定した位置に強制的に配置するためのパッケージ
+\usepackage{amsmath} %数学記号を拡充するパッケージ
+\renewcommand\thefootnote{注 \arabic{footnote}} % 脚注の番号表記をロマン数字に設定するためのおまじない
+\usepackage{hhline} % 二重線に関するパッケージ
+\renewcommand{\thesection}{課題\arabic{section}}
+%\renewcommand{\thesubsection}{1-\Alph{subsection}}
+%\renewcommand{\thesubsection}{(\arabic{subsection})}
+\renewcommand{\thesubsubsection}{\arabic{section}.\arabic{subsubsection}}
+\renewcommand{\thesubsection}{}
+
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+\usepackage{tikz}
+\usetikzlibrary{matrix,calc}
+%\usepackage{listings,jlisting}
+
+%\lstset{
+%    basicstyle={\ttfamily\footnotesize}, %書体の指定
+%    frame=single, %フレームの指定
+   % framesep=10pt, %フレームと中身（コード）の間隔
+    %breaklines=true, %行が長くなった場合の改行
+    %linewidth=12cm, %フレームの横幅
+   % lineskip=-0.5ex, %行間の調整
+%}
+
+\begin{document}
+\title{プログラミング言語実験  Schemeレポート\\} 
+\author{1710199\\ 君島 雄一郎}
+\date{}
+
+\maketitle
+\thispagestyle{empty}
+
+\newpage
+%---------------------------------------------------
+\section{}%kadai1
+\subsection{設計上の留意点}
+
+\subsection{出力例}
+\subsubsection{関数map-tree}%1-1
+\subsubsection{関数map-tree2}%1-2
+
+
+\subsection{考察}
+
+
+\newpage
+%---------------------------------------------------
+\section{}%kadai2
+\subsection{設計上の留意点}
+
+
+\subsection{出力例}
+\subsubsection{関数get-depth}%2-1
+\subsubsection{関数get-cousin}%2-2
+
+
+\subsection{考察}
+
+
+\newpage
+%---------------------------------------------------
+\section{}%kadai3
+\subsection{設計上の留意点}
+
+\subsection{出力例}
+\subsubsection{関数diff}%3-1
+\subsubsection{関数tangent}%3-2
+\subsubsection{関数diff2}%3-3
+\subsubsection{関数simple}%3-4
+
+
+\subsection{考察}
+
+
+\end{document}
